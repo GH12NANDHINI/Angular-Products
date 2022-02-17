@@ -3,19 +3,19 @@
     <th>productId</th>
     <th>productName</th>
     <th>price</th>
-    <th>Quantity</th>
-    <th>ExpiryDate</th>
+    <th>quantity</th>
+    <th>expirarydate</th>
   </tr>
-  <tr *ngFor="let product of productFiles">
+  <tr *ngFor="let product of products">
     <td>{{ product.productId }}</td>
     <td>{{ product.productName }}</td>
     <td>{{ product.price }}</td>
-    <td>{{ product.quantity }}</td>
+    <td>{{ product.quantity}}</td>
     <td>{{ product.expirarydate }}</td>
   </tr>
-</table>
-
-<div *ngFor="let product of productFiles">
+  </table>
+  
+  <div *ngFor="let product of products">
   <h3>
     <a [title]="product.productName">
       {{ product.productName }}
@@ -24,7 +24,7 @@
   <p *ngIf="product.price">Price : {{ product.price }}</p>
   <button type="button" (click)="addToCart()">Add</button>
   <app-product-alert
-    [productInside]="productFiles"
+    [productInside]="product"
     (notify)="onnotify()"
   ></app-product-alert>
-</div>
+  </div>

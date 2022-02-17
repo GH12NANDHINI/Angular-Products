@@ -1,4 +1,13 @@
-export const productsFromFile = [
+export interface product{
+  productId: String;
+  productName: String;
+  price: number;
+  quantity: number;
+  expirarydate: String;
+}
+
+export const productsFromList = [
+
   {
     productId: 'P001',
     productName: 'KURTIS',
@@ -33,5 +42,5 @@ export const productsFromFile = [
     price: 1500.05,
     quantity: 2,
     expirarydate: '2023-05-06',
-  },
-];
+  }
+]
