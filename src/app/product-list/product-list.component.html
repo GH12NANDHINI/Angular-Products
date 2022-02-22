@@ -1,17 +1,29 @@
-<table class="table table-dark table-striped" style="width:500px">
-  
-  </table>
-  
-  <div *ngFor="let product of products">
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
   <h3>
-    <a [title]="product.productName">
+    <!-- property binding -->
+    <a
+      [title]="product.productName + ' details'"
+      [routerLink]="['/products', product.productId]"
+    >
+      <!-- string interpolation (data binding) -->
       {{ product.productName }}
     </a>
   </h3>
-  <p *ngIf="product.price">Price : {{ product.price }}</p>
-  <button type="button" (click)="addToCart()">Add</button>
-  <app-product-alert
-    [productInside]="product"
-    (notify)="onnotify()"
-  ></app-product-alert>
+  <!-- structural directive -->
+  <!-- <p *ngIf="product.description">Description: {{ product.description }}</p> -->
+  <!-- event binding -->
+  <button type="button" (click)="share()">Share</button>
+  &nbsp;
+  <button type="button" (click)="buy()">Buy</button>
+  &nbsp;
+
+  <div style="background-color:red">
+    <app-product-alert
+      [productInside]="product"
+      (notify)="onNotify()"
+    ></app-product-alert>
   </div>
+  &nbsp;
+</div>
